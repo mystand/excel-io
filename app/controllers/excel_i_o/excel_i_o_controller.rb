@@ -1,4 +1,4 @@
-class Admin::ExcelIoController < Admin::BaseController
+class ExcelIOController::ExcelIOController < ExcelIOController
   before_action :fill_variables
   skip_before_filter :verify_authenticity_token, :only => [:import, :preview_import]
 
