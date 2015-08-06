@@ -17,7 +17,11 @@ config/environments/development.rb
 
 vendor/assets/react/CJXTransormer.js (for CoffeeScript)
 
-app/assets/admin.js
+app/assets/javascript/admin.js
 
   //= require react
   //= require react_ujs
+
+app/assets/stylesheets/admin.css
+
+  *= require excel-i-o
