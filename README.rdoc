@@ -1,3 +1,23 @@
 = ExcelIO
 
-This project rocks and uses MIT-LICENSE.
+** Requirements: **
+
+Gemfile:
+
+  # ReactJs
+  gem 'react-rails', git: 'https://github.com/dobrite/react-rails.git'
+
+config/application.rb:
+
+  config.react.addons = true
+
+config/environments/development.rb
+
+  config.react.variant = :development
+
+vendor/assets/react/CJXTransormer.js (for CoffeeScript)
+
+app/assets/admin.js
+
+  //= require react
+  //= require react_ujs

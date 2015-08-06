@@ -1,0 +1,41 @@
+div[data-react-class='ExcelMapperExportMain']
+  background-color: #ffffff
+  padding: 40px
+  margin-top: 20px
+  > .excel-mapper-export-container, .excel-mapper-import-container
+    overflow: auto
+    td
+      padding: 10px 20px
+      border: 1px solid #ddd
+    .export-rule
+      margin-top: 100px
+      input, select
+        display: block
+        margin: 10px
+      select
+        border: 1px solid #ddd
+        margin: 0
+        margin-bottom: 16px
+        line-height: 24px
+
+    .add-rule-container
+      background-color: #ffffff
+      vertical-align: middle
+      height: 120px
+      border-radius: 20px
+      border: 1px dashed #DDDDDD
+      .add-rule
+        display: inline-block
+
+    $rightBlockWidth: 200px
+
+    .left-block
+      margin-right: $rightBlockWidth
+      overflow: auto
+
+    .right-block
+      float: right
+      width: $rightBlockWidth
+
+      > .export-btn
+        margin: 20px

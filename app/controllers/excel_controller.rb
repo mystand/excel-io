@@ -1,4 +1,4 @@
-class ExcelController < ActionController::Base
+class ExcelController < Admin::BaseController
   before_action :fill_variables
   skip_before_filter :verify_authenticity_token, :only => [:import, :preview_import]
 

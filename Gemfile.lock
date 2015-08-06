@@ -1,3 +1,13 @@
+GIT
+  remote: https://github.com/dobrite/react-rails.git
+  revision: fdbd6edc1c7d73434503c3667e5173d6d1c5ef3a
+  specs:
+    react-rails (1.0.0.pre)
+      connection_pool
+      execjs
+      rails (>= 3.1)
+      react-source (= 0.9.0)
+
 PATH
   remote: .
   specs:
@@ -44,7 +54,16 @@ GEM
       tzinfo (~> 1.1)
     arel (6.0.3)
     builder (3.2.2)
+    coffee-rails (4.0.1)
+      coffee-script (>= 2.2.0)
+      railties (>= 4.0.0, < 5.0)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.9.1.1)
+    connection_pool (2.2.0)
     erubis (2.7.0)
+    execjs (2.5.2)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
@@ -86,6 +105,14 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
+    react-source (0.9.0)
+    sass (3.4.15)
+    sass-rails (5.0.3)
+      railties (>= 4.0.0, < 5.0)
+      sass (~> 3.1)
+      sprockets (>= 2.8, < 4.0)
+      sprockets-rails (>= 2.0, < 4.0)
+      tilt (~> 1.1)
     sprockets (3.2.0)
       rack (~> 1.0)
     sprockets-rails (2.3.2)
@@ -94,6 +121,7 @@ GEM
       sprockets (>= 2.8, < 4.0)
     thor (0.19.1)
     thread_safe (0.3.5)
+    tilt (1.4.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
 
@@ -101,4 +129,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  coffee-rails
   excel_i_o!
+  react-rails!
+  sass-rails
