@@ -1,4 +1,4 @@
-class ExcelFloat < ExcelField
+class ExcelIO::ExcelFloat < ExcelIO::ExcelField
 
   def get
     @obj.send @name

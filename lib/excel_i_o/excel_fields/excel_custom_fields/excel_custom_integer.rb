@@ -1,4 +1,4 @@
-class ExcelCustomInteger < ExcelCustomField
+class ExcelIO::ExcelCustomInteger < ExcelIO::ExcelCustomField
 
   def get
     return nil if @obj.custom_values.nil?

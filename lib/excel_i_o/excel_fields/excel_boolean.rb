@@ -1,4 +1,4 @@
-class ExcelBoolean < ExcelField
+class ExcelIO::ExcelBoolean < ExcelIO::ExcelField
 
   def get
     @obj.send(@name) ? "Да" : "Нет"

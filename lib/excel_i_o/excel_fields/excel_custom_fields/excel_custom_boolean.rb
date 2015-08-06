@@ -1,4 +1,4 @@
-class ExcelCustomBoolean < ExcelCustomField
+class ExcelIO::ExcelCustomBoolean < ExcelIO::ExcelCustomField
 
   def get
     return nil if @obj.custom_values[@custom_field.id.to_s].nil?

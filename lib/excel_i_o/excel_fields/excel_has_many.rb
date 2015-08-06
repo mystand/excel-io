@@ -1,4 +1,4 @@
-class ExcelHasMany < ExcelField
+class ExcelIO::ExcelHasMany < ExcelIO::ExcelField
 
   def initialize(obj, field_name)
     super obj, field_name

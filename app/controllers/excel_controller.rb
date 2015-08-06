@@ -1,4 +1,4 @@
-class ExcelController < ::Admin::AdminController
+class ExcelController < ActionController::Base
   before_action :fill_variables
   skip_before_filter :verify_authenticity_token, :only => [:import, :preview_import]
 
@@ -6,7 +6,7 @@ class ExcelController < ::Admin::AdminController
     @model = params[:model]
     klass = @model.singularize.camelize.constantize
     @field_names = make_field_names_for klass
-    @factory = ExcelFieldFactory.new
+    @factory = ExcelIO::ExcelFieldFactory.new
     @example_data = klass.accessible_by(current_ability).limit(10).map do |obj|
       d = {}
       @field_names.each do |field_name|
@@ -18,7 +18,6 @@ class ExcelController < ::Admin::AdminController
 
     @rules = make_rules_for @model
   end
-
 
   def import_form
     model = params[:model]
@@ -102,7 +101,7 @@ class ExcelController < ::Admin::AdminController
   end
 
   def fill_variables
-    @mapper = ExcelMapper.new
+    @mapper = ExcelIO::ExcelMapper.new
   end
 
   private

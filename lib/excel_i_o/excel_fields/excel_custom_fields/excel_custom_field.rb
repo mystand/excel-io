@@ -1,4 +1,4 @@
-class ExcelCustomField < ExcelField
+class ExcelIO::ExcelCustomField < ExcelIO::ExcelField
 
   def initialize(obj, field_name)
     super obj, field_name

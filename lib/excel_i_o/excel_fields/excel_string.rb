@@ -1,4 +1,4 @@
-class ExcelString < ExcelField
+class ExcelIO::ExcelString < ExcelIO::ExcelField
 
   def get
     @obj.send @name

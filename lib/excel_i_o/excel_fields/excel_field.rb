@@ -1,4 +1,4 @@
-class ExcelField
+class ExcelIO::ExcelField
 
   attr_accessor :errors
 

@@ -1,4 +1,4 @@
-class ExcelCustomString < ExcelCustomField
+class ExcelIO::ExcelCustomString < ExcelIO::ExcelCustomField
 
   def get
     return nil if @obj.custom_values.nil?

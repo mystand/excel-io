@@ -1,4 +1,4 @@
-class ExcelLocalized < ExcelField
+class ExcelIO::ExcelLocalized < ExcelIO::ExcelField
 
   def get
     @obj.send @name

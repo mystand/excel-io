@@ -1,4 +1,4 @@
-class ExcelBelongsTo < ExcelField
+class ExcelIO::ExcelBelongsTo < ExcelIO::ExcelField
 
   def initialize(obj, field_name)
     super obj, field_name

@@ -1,4 +1,4 @@
-class ExcelCustomFloat < ExcelCustomField
+class ExcelIO::ExcelCustomFloat < ExcelIO::ExcelCustomField
 
   def get
     return nil if @obj.custom_values.nil?

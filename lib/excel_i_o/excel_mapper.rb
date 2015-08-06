@@ -1,5 +1,4 @@
 require 'roo'
-require 'excel_i_o/excel_field_factory'
 
 module ExcelIO
   class ExcelMapper

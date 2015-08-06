@@ -1,4 +1,4 @@
-class ExcelGeoData < ExcelField
+class ExcelIO::ExcelGeoData < ExcelIO::ExcelField
 
   def get
     @obj.send "#{@name}_geojson"
