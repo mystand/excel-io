@@ -6,6 +6,7 @@ Gemfile:
 
   # ReactJs
   gem 'react-rails', git: 'https://github.com/dobrite/react-rails.git'
+  gem 'excel_i_o', git: 'https://github.com/mystand/excel-io.git'
 
 config/application.rb:
 
@@ -15,12 +16,17 @@ config/environments/development.rb
 
   config.react.variant = :development
 
-vendor/assets/react/CJXTransormer.js (for CoffeeScript)
+config/routes.rb
+
+  mount ExcelIO::Engine => '/excel', as: 'excel'
+
+vendor/assets/react/CJSXTransormer.js (for CoffeeScript)
 
 app/assets/javascript/admin.js
 
   //= require react
   //= require react_ujs
+  //= require excel-i-o
 
 app/assets/stylesheets/admin.css
 

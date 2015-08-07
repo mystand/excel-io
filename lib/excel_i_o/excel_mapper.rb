@@ -1,5 +1,3 @@
-require 'roo'
-
 module ExcelIO
   class ExcelMapper
 

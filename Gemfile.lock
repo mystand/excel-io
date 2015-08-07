@@ -11,7 +11,7 @@ GIT
 PATH
   remote: .
   specs:
-    excel_i_o (0.0.1)
+    excel_i_o (0.0.2)
       rails (~> 4.0, >= 4.0.0)
 
 GEM
@@ -52,11 +52,24 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    acts_as_xlsx (1.0.6)
+      activerecord (>= 2.3.9)
+      axlsx (>= 1.0.13)
+      i18n (>= 0.4.1)
     arel (6.0.3)
+    axlsx (2.0.1)
+      htmlentities (~> 4.3.1)
+      nokogiri (>= 1.4.1)
+      rubyzip (~> 1.0.0)
+    axlsx_rails (0.3.0)
+      axlsx (>= 2.0.1)
+      rails (>= 3.1)
     builder (3.2.2)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
+    coffee-react (3.0.1)
+      execjs
     coffee-script (2.4.1)
       coffee-script-source
       execjs
@@ -66,6 +79,7 @@ GEM
     execjs (2.5.2)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    htmlentities (4.3.4)
     i18n (0.7.0)
     json (1.8.3)
     loofah (2.0.2)
@@ -106,6 +120,12 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     react-source (0.9.0)
+    roo (1.13.2)
+      nokogiri
+      rubyzip
+      spreadsheet (> 0.6.4)
+    ruby-ole (1.2.11.7)
+    rubyzip (1.0.0)
     sass (3.4.15)
     sass-rails (5.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -113,8 +133,15 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (~> 1.1)
+    spreadsheet (0.9.6)
+      ruby-ole (>= 1.0)
     sprockets (3.2.0)
       rack (~> 1.0)
+    sprockets-coffee-react (3.0.1)
+      coffee-react (>= 3.0.1)
+      coffee-script
+      sprockets
+      tilt
     sprockets-rails (2.3.2)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
@@ -129,7 +156,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_xlsx
+  axlsx
+  axlsx_rails
   coffee-rails
   excel_i_o!
   react-rails!
+  roo
   sass-rails
+  sprockets-coffee-react

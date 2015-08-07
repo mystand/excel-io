@@ -11,4 +11,6 @@ module ExcelIO
     autoload klass_name, "excel_i_o/excel_fields/#{klass_name.to_s.underscore}"
   end
 
+  mattr_accessor :parent_controller
+  @@parent_controller = 'ApplicationController'
 end
