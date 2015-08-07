@@ -22,8 +22,8 @@ class ExcelController < ExcelIO.parent_controller.constantize
   end
 
   def import_form
-    model = params[:model]
-    klass = model.singularize.camelize.constantize
+    @model = params[:model]
+    klass = @model.singularize.camelize.constantize
     @field_names = make_field_names_for klass
     @example_data = klass.accessible_by(current_ability).limit(10).map do |obj|
       d = {}
@@ -33,7 +33,7 @@ class ExcelController < ExcelIO.parent_controller.constantize
       d
     end
 
-    @rules = make_rules_for model
+    @rules = make_rules_for @model
   end
 
   def preview_import
@@ -52,6 +52,8 @@ class ExcelController < ExcelIO.parent_controller.constantize
   end
 
   def import
+    model = params[:model]
+
     rules = JSON.parse params[:rules]
     old_file_path = params[:file].path
     file_path = "#{old_file_path}.xlsx"
@@ -66,7 +68,7 @@ class ExcelController < ExcelIO.parent_controller.constantize
     end
     FileUtils.mv old_file_path, file_path
 
-    result = @mapper.import class: "TestItem", file_name: file_path,
+    result = @mapper.import class: model, file_name: file_path,
                rules: rules
 
     if result[:cells].any?
@@ -141,11 +143,15 @@ class ExcelController < ExcelIO.parent_controller.constantize
 
   def get_data_for_field_name klass, field_name
     sql_type = klass.column_types[field_name].try :sql_type
+    puts field_name
+    puts sql_type
     res = case sql_type
             when "hstore"
               {type: "text", custom: false}
             when "character varying(255)"
               {type: "string", custom: false}
+            when "numeric"
+              {type: "text", custom: false}
             when nil
               if make_localized_field_names_for(klass.name).include? field_name
                 {type: "localized", custom: false}
@@ -156,7 +162,7 @@ class ExcelController < ExcelIO.parent_controller.constantize
               {type: sql_type, custom: false}
           end
     res[:name] = field_name
-    res[:type] = 'geo_data' if res[:type] == 'geography(Geometry,4326)'
+    res[:type] = 'geo_data' if res[:type].match(/geography(.*,4326)/)
     res[:type] = 'float' if res[:type] == 'double precision'
     if field_name.match(/(.*)_id/)
       res[:type] = "belongs_to"

@@ -35,6 +35,7 @@ window.ExcelMapperImportMain = React.createClass
   importExcel: (e) ->
     formData = new FormData()
     formData.append 'file', @file
+    formData.append 'model', @props.model
 
     enabledRules = _(@state.rules).where enabled: yes
     rules = _(enabledRules).map (obj) =>
