@@ -16,8 +16,3 @@ gemspec
 gem 'coffee-rails'
 gem 'sass-rails'
 gem 'react-rails', git: 'https://github.com/dobrite/react-rails.git'
-
-gem 'axlsx'
-gem 'acts_as_xlsx'
-gem 'axlsx_rails'
-gem 'roo'

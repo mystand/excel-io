@@ -1,3 +1,5 @@
+require 'roo'
+
 class ExcelController < ExcelIO.parent_controller.constantize
   before_action :fill_variables
   skip_before_filter :verify_authenticity_token, :only => [:import, :preview_import]
