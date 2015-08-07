@@ -20,8 +20,6 @@ config/routes.rb
 
   mount ExcelIO::Engine => '/excel', as: 'excel'
 
-vendor/assets/react/CJSXTransormer.js (for CoffeeScript)
-
 app/assets/javascript/admin.js
 
   //= require react
