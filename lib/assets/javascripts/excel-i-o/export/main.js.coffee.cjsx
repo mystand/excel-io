@@ -98,9 +98,9 @@ window.ExcelMapperExportMain = React.createClass
     <div className="left-block">
     <table className="white-bg table-striped">
       <tr>{rulesViews}<td className="add-rule-container">
-          <a className="add-rule btn btn-primary btn-sm" onClick={@addRule}>
+          { @availableFieldNames().length > 0 ? <a className="add-rule btn btn-primary btn-sm" onClick={@addRule}>
             <i className="fa fa-plus"></i>Добавить столбец
-          </a>
+          </a> : null}
         </td>
       </tr>{samples}
     </table>
