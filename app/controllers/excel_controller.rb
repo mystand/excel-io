@@ -150,6 +150,8 @@ class ExcelController < ExcelIO.parent_controller.constantize
               {type: "text", custom: false}
             when "character varying(255)"
               {type: "string", custom: false}
+            when "bigint"
+              {type: "text", custom: false}
             when "numeric"
               {type: "text", custom: false}
             when nil
