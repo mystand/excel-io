@@ -5,7 +5,7 @@ module ExcelIO
   autoload :ExcelFieldFactory, 'excel_i_o/excel_field_factory'
 
   #todo better?
-  [:ExcelBelongsTo, :ExcelBoolean, :ExcelField, :ExcelFloat, :ExcelGeoData,
+  [:ExcelBelongsTo, :ExcelBoolean, :ExcelDate, :ExcelField, :ExcelFloat, :ExcelGeoData,
     :ExcelHasMany, :ExcelInteger, :ExcelLocalized, :ExcelString, :ExcelText].each do |klass_name|
 
     autoload klass_name, "excel_i_o/excel_fields/#{klass_name.to_s.underscore}"

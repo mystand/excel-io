@@ -156,9 +156,10 @@ module ExcelIO
 
             values << relation.all.map{|item| item.try(:name) || item.try(:title)}
           end
-
-          values.each do |array|
-            array[max_size - 1] ||= nil # increase its size to max_size for transposition
+          if max_size > 0
+            values.each do |array|
+              array[max_size - 1] ||= nil # increase its size to max_size for transposition
+            end
           end
 
           values.transpose.each do |row_values|
@@ -180,7 +181,9 @@ module ExcelIO
     private
 
     def get_belongs_to_class(field_name, klass)
-      association = klass.reflect_on_all_associations(:belongs_to).find{|t| t.name == field_name}
+      association = klass.reflect_on_all_associations(:belongs_to).find do |t|
+        t.association_foreign_key == field_name.to_s
+      end
       @klass = association.klass
     end
 

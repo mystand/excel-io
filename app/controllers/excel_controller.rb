@@ -143,8 +143,6 @@ class ExcelController < ExcelIO.parent_controller.constantize
 
   def get_data_for_field_name klass, field_name
     sql_type = klass.column_types[field_name].try :sql_type
-    puts field_name
-    puts sql_type
     res = case sql_type
             when "hstore"
               {type: "text", custom: false}
@@ -170,7 +168,7 @@ class ExcelController < ExcelIO.parent_controller.constantize
     res[:type] = 'float' if res[:type] == 'double precision'
     if field_name.match(/(.*)_id/)
       res[:type] = "belongs_to"
-      res[:name] = /(.*)_id/.match(res[:name])[1]
+      # res[:name] = /(.*)_id/.match(res[:name])[1]
     elsif klass.reflect_on_all_associations.map(&:plural_name).include? field_name
       res[:type] = "has_many"
     end
