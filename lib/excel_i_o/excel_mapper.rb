@@ -223,10 +223,9 @@ module ExcelIO
     end
 
     def add_errors(stack:, errors:, row_index:, column_index:)
-      key = [row_index, column_index]
-      old_errors = stack[key]
-      errors = old_errors + errors if old_errors
-      stack[key] = errors    
+      stack[row_index] ||= {}
+      stack[row_index][column_index] ||= []
+      stack[row_index][column_index].push errors
     end
 
     def number_to_word(row_id, column_id)
