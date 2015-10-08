@@ -194,7 +194,11 @@ module ExcelIO
         if rule[:custom]
           rule[:field_name]
         else
-          I18n.t "activerecord.models.#{klass.name.underscore}.#{rule[:field_name]}"
+          if rule[:field_name].to_s == "id"
+            "ID"
+          else
+            I18n.t "activerecord.attributes.#{klass.name.underscore}.#{rule[:field_name]}"
+          end
         end
       end
     end
