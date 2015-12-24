@@ -21,13 +21,14 @@ module ExcelIO
         xlsx.each_with_index do |row, row_index|
           next if row_index.zero?
           obj = build_object klass, rules, row
+          next if obj == nil
           row.each_with_index do |cell, index|
             rule = rules[index + 1]
             if rule
               type = rule[:type]
               custom = rule[:custom] || false
               field_name = rule[:field_name]
-              field_value = cell
+              field_value = cell.to_s
 
               field = @factory.getField obj, field_name, type, custom
 
@@ -209,6 +210,7 @@ module ExcelIO
       if id_config_obj
         id  = row[id_config_obj[:number].to_i - 1]
         obj = klass.find_by_id id.to_i unless id.blank?
+        return nil if obj == nil
       end
       obj || klass.new
     end
